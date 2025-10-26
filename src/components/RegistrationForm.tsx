@@ -1,7 +1,7 @@
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import {object, string} from 'yup';
 
-const validationShema = object().shape({
+const validationSchema = object({
     name: string()
         .min(2, 'Min length must be greater than 2 characters')
         .max(50, 'Max length must not be greater than 50 characters')
@@ -30,7 +30,7 @@ const handleSubmit = (values: typeof initialValues) => {
 
     export const RegistrationForm = () => (
         <Formik initialValues={initialValues}
-            validationSchema={validationShema}
+            validationSchema={validationSchema}
         onSubmit={handleSubmit}>
                 <Form className="flex flex-col gap-5 border-gray-500 border-4 rounded-xl p-4 w-[512px]">
                     <h1 className='text-2xl font-bold'>Registration Form</h1>
